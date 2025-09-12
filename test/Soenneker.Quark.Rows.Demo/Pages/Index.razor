@@ -1,0 +1,88 @@
+﻿@page "/"
+@using Microsoft.Extensions.Logging
+
+@inject ILogger<Index> Logger
+
+<div class="container">
+    <img src="https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png" />
+    <h1>Soenneker.Quark.Rows Demo</h1>
+    <p>This page demonstrates the Bootstrap Row component from Quark.Rows.</p>
+    <br />
+
+    <hr />
+
+    <h2>Basic Row Usage</h2>
+    <p>The Row component provides a Bootstrap row that contains columns and provides proper spacing.</p>
+    
+    <Row Class="bg-light p-3 mb-3">
+        <div class="col-12">
+            <h3>Row with Custom Classes</h3>
+            <p>This row has custom Bootstrap classes (bg-light, p-3, mb-3) but the "row" class is automatically included.</p>
+            <p><strong>Result:</strong> class="row bg-light p-3 mb-3"</p>
+        </div>
+    </Row>
+
+    <h2>Row with Columns</h2>
+    <Row Class="mb-3">
+        <div class="col-md-4">
+            <div class="bg-primary text-white p-3 text-center">
+                <h4>Column 1</h4>
+                <p>This is the first column in the row.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="bg-success text-white p-3 text-center">
+                <h4>Column 2</h4>
+                <p>This is the second column in the row.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="bg-warning text-dark p-3 text-center">
+                <h4>Column 3</h4>
+                <p>This is the third column in the row.</p>
+            </div>
+        </div>
+    </Row>
+
+    <h2>Row Properties</h2>
+    <Row Class="bg-info text-white p-3">
+        <div class="col-12">
+            <h3>Row Features</h3>
+            <p>The Row component inherits all properties from the Element base class:</p>
+            <ul>
+                <li><strong>Id:</strong> HTML id attribute</li>
+                <li><strong>Class:</strong> CSS classes (Bootstrap utility classes supported)</li>
+                <li><strong>Style:</strong> Inline CSS styles</li>
+                <li><strong>Title:</strong> Tooltip text</li>
+                <li><strong>Hidden:</strong> Visibility control</li>
+                <li><strong>Display:</strong> CSS display property</li>
+                <li><strong>Margin/Padding:</strong> Spacing utilities</li>
+                <li><strong>Event Handlers:</strong> Click, focus, keyboard events</li>
+            </ul>
+        </div>
+    </Row>
+
+    <h2>Nested Rows</h2>
+    <Row Class="border border-primary p-3">
+        <div class="col-12">
+            <h3>Outer Row</h3>
+            <Row Class="bg-secondary text-white p-2">
+                <div class="col-6">
+                    <h4>Inner Row - Left</h4>
+                    <p>This is a nested row within another row.</p>
+                </div>
+                <div class="col-6">
+                    <h4>Inner Row - Right</h4>
+                    <p>Nested rows are useful for complex layouts.</p>
+                </div>
+            </Row>
+        </div>
+    </Row>
+</div>
+
+@code{
+    protected override void OnInitialized()
+    {
+        Logger.LogInformation("Row demo page initialized");
+    }
+}
