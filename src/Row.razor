@@ -1,6 +1,3 @@
-@using System.Collections.Generic
-@using Soenneker.Extensions.String
-
 @inherits Soenneker.Quark.Components.Element
 
 <div @attributes="BuildAttributes()">
@@ -8,23 +5,14 @@
 </div>
 
 @code {
+    public override string? Name { get; set; } = "Row";
+
     protected override Dictionary<string, object> BuildAttributes()
     {
-        Dictionary<string, object> attributes = base.BuildAttributes();
+        base.BuildAttributes();
         
-        // Ensure the row class is always included
-        var existingClass = attributes.GetValueOrDefault("class")?.ToString();
-        const string rowClass = "row";
-        
-        if (existingClass.IsNullOrEmpty())
-        {
-            attributes["class"] = rowClass;
-        }
-        else
-        {
-            attributes["class"] = $"{rowClass} {existingClass}";
-        }
-        
-        return attributes;
+        AppendToClassAttr(Attributes, "row");
+
+        return Attributes;
     }
 }
