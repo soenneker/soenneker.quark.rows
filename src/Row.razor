@@ -1,15 +1,15 @@
 @inherits Soenneker.Quark.Element
 
-<div @attributes="BuildAttributes()">
+<Div @attributes="BuildAttributes()">
 	@ChildContent
-</div>
+</Div>
 
 @code {
     public override string? Name { get; set; } = "Row";
 
     protected override Dictionary<string, object> BuildAttributes()
     {
-        base.BuildAttributes();
+        Attributes = base.BuildAttributes();
         
         AppendToClassAttr(Attributes, "row");
 
